@@ -1,0 +1,52 @@
+.container {
+	display: flex;
+	flex-direction: column;
+
+	padding: 3rem 5rem;
+}
+
+.header {
+	display: grid;
+	grid-template-columns: 1fr 5fr 1fr;
+	grid-template-areas: "label searchbar button";
+	grid-gap: .5rem;
+
+	align-items: center;
+}
+
+.label {
+	grid-area: "label";
+	flex-grow: 1;
+	justify-self: flex-start;
+}
+
+.filterButton {
+	grid-area: "button";
+	
+}
+
+.searchbar {
+	grid-area: "searchbar";
+	justify-self: flex-end;
+
+	max-width: 50%;
+	padding: 0 2rem;
+}
+
+.cardsContainer {
+	padding: 3rem;
+
+	display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    grid-gap: 1rem;
+    overflow: hidden;
+}
+
+.cardsContainer div {
+	justify-self: stretch;
+    position: relative;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    min-height: 20rem;
+}
