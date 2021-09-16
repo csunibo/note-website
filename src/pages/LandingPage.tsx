@@ -1,9 +1,10 @@
 import { Box, Grid } from "@material-ui/core";
 import { Typography, ThemeProvider, Button } from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles';
 import React from "react";
-import { ReactComponent as StudyingImage } from "../Images/studying.svg"
 import MainTheme from "../styles/MainTheme";
+import Image from 'next/image';
+import StudyingImage from '../images/studying.svg';
+
 
 function IntroText() {
     return( 
@@ -39,7 +40,7 @@ function IntroTextBlock() {
                     <IntroText/>
                 </Grid>
                 <Grid container item xs={12} sm={6}>
-                    <StudyingImage/>
+                    <Image src={StudyingImage} alt="Person studying"/>
                 </Grid>
             </Grid>
         </Box>
