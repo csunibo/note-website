@@ -1,18 +1,7 @@
-import { getMongo } from './mongo';
+import { getFromCollection } from './mongoAPI';
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-    const mongo = await getMongo(true);
-    if (!mongo) {
-        res.status(502).json({ error: "Could not enstablish connection with the mongo Database. Contact server administrator"});
-        return;
-    }
-    const courses = mongo.collection('courses');
-    if (!courses) {
-        res.status(502).json({ error: "Could not find the courses collection. Contact server administrator"});
-    }
-
-    const data = await courses.find(req.query).toArray();
-    res.status(200).json({data: data});
-    return;
+    const response = await getFromCollection("courses", req.query);
+    res.status(response.code).json(response.message);
 }
