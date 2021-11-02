@@ -1,7 +1,12 @@
-import { getFromCollection } from './mongoAPI';
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { Section } from "../../types/models";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-    const response = await getFromCollection("sections", req.query);
-    res.status(response.code).json(response.message);
+    Section.find(req.query, (err, data) => {
+        if (err) {
+            res.status(404).json(err);
+        } else {
+            res.status(200).json(data);
+        }
+    })
 }
