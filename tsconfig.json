@@ -22,7 +22,8 @@
     },
     "include": [
         "src",
-        ["images", "src/custom.d.ts"]
+        "src/images",
+        "src/custom.d.ts"
     ],
     "exclude": [
         "node_modules"
